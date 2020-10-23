@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+import { useCountry } from './hooks/useCountry';
+import { useCourses } from './hooks/useCourses';
+import { usePrice } from './hooks/usePrice';
+
+import { CountrySection } from './components/CountrySection';
+import { CoursesSection } from './components/CoursesSection';
+import { EmailSection } from './components/EmailSection';
+import { HeaderSection } from './components/HeaderSection';
+import { PaymentPlanSection } from './components/PaymentPlanSection';
+import { PriceSection } from './components/PriceSection';
+import { TuitionThemeProvider } from './providers/TuitionThemeProvider';
+
+export type Plan = 'full' | 'part';
+
+export const App: React.FC = () => {
+  const [ country, setCountry ] = useCountry();
+  const [ coursesState, coursesDispatch ] = useCourses();
+  const price = usePrice(country, coursesState.selected);
+  const [ plan, setPlan ] = useState<Plan>('full');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TuitionThemeProvider>
+      <HeaderSection></HeaderSection>
+      <CountrySection country={country} setCountry={setCountry} />
+      <CoursesSection coursesState={coursesState} coursesDispatch={coursesDispatch} />
+      <PaymentPlanSection price={price} plan={plan} setPlan={setPlan} />
+      <PriceSection price={price} plan={plan}></PriceSection>
+      <EmailSection country={country} courses={coursesState.selected}></EmailSection>
+    </TuitionThemeProvider>
   );
-}
-
-export default App;
+};
