@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const Hightlight = styled.span`
+export const Highlight = styled.span`
   color: ${props => props.theme.primary}
 `;

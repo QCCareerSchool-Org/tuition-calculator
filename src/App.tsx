@@ -24,7 +24,7 @@ export const App: React.FC = () => {
     <TuitionThemeProvider>
       <HeaderSection></HeaderSection>
       <CountrySection country={country} setCountry={setCountry} />
-      <CoursesSection coursesState={coursesState} coursesDispatch={coursesDispatch} />
+      <CoursesSection price={price} coursesState={coursesState} coursesDispatch={coursesDispatch} />
       <PaymentPlanSection price={price} plan={plan} setPlan={setPlan} />
       <PriceSection price={price} plan={plan}></PriceSection>
       <EmailSection country={country} courses={coursesState.selected}></EmailSection>
