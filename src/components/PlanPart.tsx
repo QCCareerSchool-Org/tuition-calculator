@@ -2,7 +2,9 @@ import React from 'react';
 
 import { PriceResult } from '../hooks/usePrice';
 
-import { Hightlight } from '../styled/Highlight';
+import { formatCurrency } from '../lib/formatCurrency';
+
+import { Highlight } from '../styled/Highlight';
 import { Size } from '../styled/Size';
 
 type Props = {
@@ -11,9 +13,9 @@ type Props = {
 
 export const PlanPart: React.FC<Props> = ({ price }) => (
   <Size size="big">
-    <p><strong><Hightlight>Total:</Hightlight> {price.currency.symbol}{price.plans.part.total}</strong></p>
+    <p><strong><Highlight>Total:</Highlight> {price.currency.symbol}{formatCurrency(price.plans.part.total)}</strong></p>
     <h4>Installment Plan</h4>
-    <p>Pay a <strong><Hightlight>deposit</Hightlight></strong> of <strong><Hightlight>{price.currency.symbol}{price.plans.part.deposit}</Hightlight></strong> when you enroll, followed by <strong><Hightlight>{price.plans.part.installments}</Hightlight></strong> monthly installments of <strong><Hightlight>{price.currency.symbol}{price.plans.part.installmentSize}</Hightlight></strong>.</p>
+    <p>Pay a <strong><Highlight>deposit</Highlight></strong> of <strong><Highlight>{price.currency.symbol}{formatCurrency(price.plans.part.deposit)}</Highlight></strong> when you enroll, followed by <strong><Highlight>{price.plans.part.installments}</Highlight></strong> monthly installments of <strong><Highlight>{price.currency.symbol}{formatCurrency(price.plans.part.installmentSize)}</Highlight></strong>.</p>
     <p>All prices are in {price.currency.name}.</p>
   </Size>
 );
