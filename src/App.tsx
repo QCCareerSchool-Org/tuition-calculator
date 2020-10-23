@@ -4,6 +4,7 @@ import { useCountry } from './hooks/useCountry';
 import { useCourses } from './hooks/useCourses';
 import { usePrice } from './hooks/usePrice';
 
+import { AppHelmet } from './components/AppHelmet';
 import { CountrySection } from './components/CountrySection';
 import { CoursesSection } from './components/CoursesSection';
 import { EmailSection } from './components/EmailSection';
@@ -22,6 +23,7 @@ export const App: React.FC = () => {
 
   return (
     <TuitionThemeProvider>
+      <AppHelmet />
       <HeaderSection></HeaderSection>
       <CountrySection country={country} setCountry={setCountry} />
       <CoursesSection price={price} coursesState={coursesState} coursesDispatch={coursesDispatch} />

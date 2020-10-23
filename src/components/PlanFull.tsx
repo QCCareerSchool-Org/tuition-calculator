@@ -15,7 +15,7 @@ type Props = {
 export const PlanFull: React.FC<Props> = ({ price }) => (
   <Size size="big">
     <p><strong><Highlight>Total:</Highlight> {price.currency.symbol}{formatCurrency(price.plans.full.total)}</strong></p>
-    <Heading2><Size size="bigger">Full Payment Plan</Size></Heading2>
+    <Heading2>Full Payment Plan</Heading2>
     <p>Make a one-time payment of <Highlight><strong>{price.currency.symbol}{formatCurrency(price.plans.full.deposit)}</strong></Highlight>{price.plans.full.discount > 0 && <><br />and <strong>save {price.currency.symbol}{formatCurrency(price.plans.full.discount)}!</strong></>}</p>
     <p>All prices are in {price.currency.name}.</p>
   </Size>
