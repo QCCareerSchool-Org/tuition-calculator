@@ -28,7 +28,7 @@ export const useTuitionTheme = (): TuitionTheme => {
     } else if (school === 'event') {
       setTheme({ ...defaultTheme, primary: '#14a98a' });
     } else if (school === 'design') {
-      setTheme({ ...defaultTheme, primary: '#ec3e86' });
+      setTheme({ ...defaultTheme, primary: '#3452ff' });
     } else {
       setTheme({ ...defaultTheme, primary: 'orange' });
     }
