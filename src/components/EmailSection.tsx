@@ -73,10 +73,9 @@ export const EmailSection: React.FC<Props> = ({ country, courses }) => {
     const process = async () => {
       try {
         await axios.post(url, { data: { email: state.emailAddress, countryCode: country, courses, school } });
+        dispatch({ type: 'SUCCESS' });
       } catch (err) {
         dispatch({ type: 'ERROR' });
-      } finally {
-        dispatch({ type: 'SUCCESS' });
       }
     };
     process();
