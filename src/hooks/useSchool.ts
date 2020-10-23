@@ -5,11 +5,11 @@ import { useHostname } from './useHostname';
 type School = 'makeup' | 'event' | 'design';
 
 export const getSchool = (hostname: string): School | null => {
-  return window.location.hostname === 'www.qcmakeupacademy.com'
+  return window.location.hostname === 'calculator.qcmakeupacademy.com'
   ? 'makeup'
-  : window.location.hostname === 'www.qceventplanning.com'
+  : window.location.hostname === 'calculator.qceventplanning.com'
     ? 'event'
-    : window.location.hostname === 'www.qcdesignschool.com'
+    : window.location.hostname === 'calculator.qcdesignschool.com'
       ? 'design'
       : null;
 };
