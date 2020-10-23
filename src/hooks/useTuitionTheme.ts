@@ -14,7 +14,7 @@ export type TuitionTheme = {
 
 const defaultTheme: TuitionTheme = {
   primary: 'mediumseagreen',
-  text: '#333',
+  text: '#444',
   size: { normal: '16px', big: '20px', bigger: '32px' },
 };
 

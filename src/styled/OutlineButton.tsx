@@ -4,6 +4,7 @@ type Props = {
   selected?: boolean;
   disabled?: boolean;
   inverse?: boolean;
+  autoWidth?: boolean;
 }
 
 const backgroundColor = (color: string, selected: boolean, inverse: boolean): string => {
@@ -27,13 +28,13 @@ const color = (color: string, selected: boolean, inverse: boolean): string => {
 };
 
 export const OutlineButton = styled.button<Props>`
-  width: 100%;
+  width: ${props => props.autoWidth ? 'auto' : '100%'};
   border: 1px solid ${props => borderColor(props.theme.primary, !!props.inverse)};
   background-color: ${props => backgroundColor(props.theme.primary, !!props.selected, !!props.inverse)};
   color: ${props => color(props.theme.primary, !!props.selected, !!props.inverse)};
   opacity: ${props => props.disabled ? 0.5 : 1};
   padding: 12px 16px;
-  margin: 0 0 4px 0;
+  margin: 0 0 4px;
   border-radius: 4px;
   &:focus { outline: none; }
 `;
