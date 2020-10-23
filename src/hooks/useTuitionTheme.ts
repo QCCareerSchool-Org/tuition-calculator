@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 
 import { useSchool } from './useSchool';
 
-type TuitionTheme = {
+export type TuitionTheme = {
   primary: string;
   text: string;
   size: {
     normal: string;
+    big: string;
     bigger: string;
   };
 }
@@ -14,7 +15,7 @@ type TuitionTheme = {
 const defaultTheme: TuitionTheme = {
   primary: 'mediumseagreen',
   text: '#333',
-  size: { normal: '16px', bigger: '20px' },
+  size: { normal: '16px', big: '20px', bigger: '32px' },
 };
 
 export const useTuitionTheme = (): TuitionTheme => {

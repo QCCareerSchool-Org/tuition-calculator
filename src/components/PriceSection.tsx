@@ -4,7 +4,7 @@ import { Plan } from '../App';
 import { PriceResult } from '../hooks/usePrice';
 
 import { Card } from '../styled/Card';
-import { Centered } from '../styled/Centered';
+import { Align } from '../styled/Align';
 import { Container } from '../styled/Container';
 import { Section } from '../styled/Section';
 import { PlanFull } from './PlanFull';
@@ -23,7 +23,7 @@ export const PriceSection: React.FC<Props> = ({ price, plan }) => {
     <Section inverse={true}>
       <Container>
         <Card>
-          <Centered>
+          <Align align="center">
             {price.courses.length === 0
               ? <p>Please choose one or more courses above</p>
               : (
@@ -33,7 +33,7 @@ export const PriceSection: React.FC<Props> = ({ price, plan }) => {
                 </>
               )
             }
-          </Centered>
+          </Align>
         </Card>
       </Container>
     </Section>
