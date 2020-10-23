@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useReducer } from 'react';
 
 import { useSchool } from '../hooks/useSchool';
+import { Align } from '../styled/Align';
 
 import { Container } from '../styled/Container';
 import { FormGroup } from '../styled/FormGroup';
@@ -85,7 +86,7 @@ export const EmailSection: React.FC<Props> = ({ country, courses }) => {
   return (
     <Section>
       <Container>
-        <Heading1>Email Your Results</Heading1>
+        <Heading1>Email Me These Results</Heading1>
         <FormGroup>
           <Label htmlFor="email-address">Email Address</Label>
           <Input
@@ -97,7 +98,9 @@ export const EmailSection: React.FC<Props> = ({ country, courses }) => {
             disabled={state.submitting}
           />
         </FormGroup>
-        <OutlineButton disabled={state.submitting || !state.emailAddress} inverse={true} onClick={submit}>Send</OutlineButton>
+        <Align align="center">
+          <OutlineButton disabled={state.submitting || !state.emailAddress} inverse={true} onClick={submit} autoWidth={true}>Send Email</OutlineButton>
+        </Align>
         {state.submitting && <p>Sending...</p>}
         {state.error && <p>There was an error with your request</p>}
       </Container>

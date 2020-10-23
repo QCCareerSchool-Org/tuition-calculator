@@ -29,7 +29,7 @@ export const CourseSelection: React.FC<Props> = ({ price }) => {
               </tr>
               {c.multiCourseDiscount > 0 && (
                 <tr>
-                  <td>{Math.round(c.multiCourseDiscount / c.cost * 100)}% Off</td>
+                  <td><Highlight>{Math.round(c.multiCourseDiscount / c.cost * 100)}% Off</Highlight></td>
                   <td><Align align="right"><Highlight>&minus;{price.currency.symbol}{c.multiCourseDiscount.toFixed(2)}</Highlight></Align></td>
                 </tr>
               )}
