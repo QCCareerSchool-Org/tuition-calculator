@@ -23,11 +23,11 @@ export const useTuitionTheme = (): TuitionTheme => {
 
   useEffect(() => {
     if (school === 'makeup') {
-      setTheme({ ...defaultTheme, primary: 'pink' });
+      setTheme({ ...defaultTheme, primary: '#ec3e86' });
     } else if (school === 'event') {
-      setTheme({ ...defaultTheme, primary: 'green' });
+      setTheme({ ...defaultTheme, primary: '#14a98a' });
     } else if (school === 'design') {
-      setTheme({ ...defaultTheme, primary: 'blue' });
+      setTheme({ ...defaultTheme, primary: '#ec3e86' });
     } else {
       setTheme({ ...defaultTheme, primary: 'orange' });
     }
