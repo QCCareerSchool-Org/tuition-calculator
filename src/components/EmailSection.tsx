@@ -37,7 +37,7 @@ const reducer = (state: State, action: Action): State => {
     case 'SUBMIT':
       return { ...state, submitting: true, success: false, error: false };
     case 'SUCCESS':
-      return { ...state, submitting: false, success: false, error: false };
+      return { ...state, submitting: false, success: true, error: false };
     case 'ERROR':
       return { ...state, submitting: false, success: false, error: true };
     default:
@@ -73,7 +73,7 @@ export const EmailSection: React.FC<Props> = ({ country, courses }) => {
     const url = 'https://api.qccareerschool.com/tuitionEmail';
     const process = async () => {
       try {
-        await axios.post(url, { data: { email: state.emailAddress, countryCode: country, courses, school } });
+        await axios.post(url, { emailAddress: state.emailAddress, countryCode: country, courses, school });
         dispatch({ type: 'SUCCESS' });
       } catch (err) {
         dispatch({ type: 'ERROR' });
@@ -96,12 +96,14 @@ export const EmailSection: React.FC<Props> = ({ country, courses }) => {
             value={state.emailAddress}
             onChange={e => dispatch({ type: 'SET_EMAIL', payload: e.target.value })}
             disabled={state.submitting}
+            autoComplete="email"
           />
         </FormGroup>
         <Align align="center">
-          <OutlineButton disabled={state.submitting || !state.emailAddress} inverse={true} onClick={submit} autoWidth={true}>Send Email</OutlineButton>
+          <OutlineButton disabled={state.submitting || !state.emailAddress || courses.length === 0} inverse={true} onClick={submit} autoWidth={true}>Send Email</OutlineButton>
         </Align>
         {state.submitting && <p>Sending...</p>}
+        {state.success && <p>Email sent!</p>}
         {state.error && <p>There was an error with your request</p>}
       </Container>
     </Section>
