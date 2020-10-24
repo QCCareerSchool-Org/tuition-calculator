@@ -7,6 +7,7 @@ import { Card } from '../styled/Card';
 import { CourseTable } from '../styled/CourseTable';
 import { Heading2 } from '../styled/Heading2';
 import { Highlight } from '../styled/Highlight';
+import { WhiteSpace } from '../styled/WhiteSpace';
 
 type Props = {
   price: PriceResult | null;
@@ -30,7 +31,7 @@ export const CourseSelection: React.FC<Props> = ({ price }) => {
               {c.multiCourseDiscount > 0 && (
                 <tr>
                   <td><Highlight>{Math.round(c.multiCourseDiscount / c.cost * 100)}% Off</Highlight></td>
-                  <td><Align align="right"><Highlight>&minus;{price.currency.symbol}{c.multiCourseDiscount.toFixed(2)}</Highlight></Align></td>
+                  <td><Align align="right"><WhiteSpace whiteSpace="nowrap"><Highlight>&minus;{price.currency.symbol}{c.multiCourseDiscount.toFixed(2)}</Highlight></WhiteSpace></Align></td>
                 </tr>
               )}
             </React.Fragment>
