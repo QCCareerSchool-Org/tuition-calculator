@@ -24,12 +24,12 @@ export const App: React.FC = () => {
   return (
     <TuitionThemeProvider>
       <AppHelmet />
-      <HeaderSection></HeaderSection>
+      <HeaderSection />
       <CountrySection country={country} setCountry={setCountry} />
       <CoursesSection price={price} coursesState={coursesState} coursesDispatch={coursesDispatch} />
       <PaymentPlanSection price={price} plan={plan} setPlan={setPlan} />
-      <PriceSection price={price} plan={plan}></PriceSection>
-      <EmailSection country={country} courses={coursesState.selected}></EmailSection>
+      <PriceSection price={price} plan={plan} />
+      <EmailSection country={country} courses={coursesState.selected} />
     </TuitionThemeProvider>
   );
 };

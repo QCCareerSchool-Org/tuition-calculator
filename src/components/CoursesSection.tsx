@@ -33,7 +33,7 @@ export const CoursesSection: React.FC<Props> = ({ price, coursesState, coursesDi
           onClick={() => coursesDispatch({ type: 'TOGGLE_COURSE', payload: c.code })}
         />)
       }
-      <CourseSelection price={price}/>
+      <CourseSelection price={price} />
     </Container>
   </Section>
 );
