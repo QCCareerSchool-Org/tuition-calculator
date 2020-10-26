@@ -6,9 +6,9 @@ import { CoursesAction, CoursesState } from '../state/courses';
 import { Container } from '../styled/Container';
 import { Heading1 } from '../styled/Heading1';
 import { Section } from '../styled/Section';
+
 import { BundleMessage } from './BundleMessage';
 import { CourseSelection } from './CourseSelection';
-
 import { ToggleButton } from './ToggleButton';
 
 type Props = {
