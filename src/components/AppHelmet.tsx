@@ -9,6 +9,8 @@ export const AppHelmet: React.FC = () => {
   if (school === 'makeup') {
     return (
       <Helmet>
+        <script async src="/gtag.js" />
+        <script src="/makeup/gtag.js" />
         <title>Tuition Calculator - QC Makeup Academy</title>
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="A tuition calculator for QC Makeup Academy courses" />
@@ -27,6 +29,8 @@ export const AppHelmet: React.FC = () => {
   if (school === 'event') {
     return (
       <Helmet>
+        <script async src="/gtag.js" />
+        <script src="/event/gtag.js" />
         <title>Tuition Calculator - QC Event School</title>
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="A tuition calculator for QC Event School courses" />
@@ -45,6 +49,8 @@ export const AppHelmet: React.FC = () => {
   if (school === 'design') {
     return (
       <Helmet>
+        <script async src="/gtag.js" />
+        <script src="/design/gtag.js" />
         <title>Tuition Calculator - QC Design School</title>
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="A tuition calculator for QC Design School courses" />
