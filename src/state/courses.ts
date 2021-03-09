@@ -11,11 +11,10 @@ export type CoursesState = {
 }
 
 export type CoursesAction =
-  | { type: 'SET_AVAILABLE_COURSES', payload: Course[] }
-  | { type: 'ADD_COURSE', payload: string }
-  | { type: 'REMOVE_COURSE', payload: string }
-  | { type: 'TOGGLE_COURSE', payload: string };
-
+  | { type: 'SET_AVAILABLE_COURSES'; payload: Course[] }
+  | { type: 'ADD_COURSE'; payload: string }
+  | { type: 'REMOVE_COURSE'; payload: string }
+  | { type: 'TOGGLE_COURSE'; payload: string };
 
 export const initialCoursesState: CoursesState = {
   available: [],
@@ -40,7 +39,7 @@ export function coursesReducer(state: CoursesState, action: CoursesAction): Cour
       const isDisabled = state.disabled.includes(courseCode);
       const isHidden = state.hidden.includes(courseCode);
       if (isAvailable && !isDisabled && !isHidden && !isSelected) {
-        const selected = [...state.selected, courseCode]; // add the course
+        const selected = [ ...state.selected, courseCode ]; // add the course
         return {
           ...state,
           selected,

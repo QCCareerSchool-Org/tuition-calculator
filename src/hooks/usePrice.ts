@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useSchool } from './useSchool';
 
 export type NoShipping = 'ALLOWED' | 'APPLIED' | 'REQUIRED' | 'FORBIDDEN';
 
@@ -86,13 +87,17 @@ export interface Currency {
   exchangeRate: number;
 }
 
-const getParams = (country: string, courses: string[]) => ({
+const getParams = (country: string, courses: string[], school: string | null) => ({
   countryCode: country,
   courses,
+  options: {
+    school: school === 'makeup' ? 'QC Makeup Academy' : school === 'event' ? 'QC Event School': school === 'design' ? 'QC Design School' : undefined,
+  },
 });
 
 export const usePrice = (country: string, courses: string[]): PriceResult | null => {
   const [ price, setPrice ] = useState<PriceResult | null>(null);
+  const school = useSchool();
 
   useEffect(() => {
     const url = 'https://api.qccareerschool.com/prices';
@@ -100,7 +105,7 @@ export const usePrice = (country: string, courses: string[]): PriceResult | null
     const fetchData = async () => {
       try {
         const response = await axios.get<PriceResult>(url, {
-          params: getParams(country, courses),
+          params: getParams(country, courses, school),
           cancelToken: cancelTokenSource.token,
           headers: { 'X-API-Version': 2 },
         });
@@ -111,7 +116,7 @@ export const usePrice = (country: string, courses: string[]): PriceResult | null
     };
     fetchData();
     return () => cancelTokenSource.cancel();
-  }, [ country, courses ]);
+  }, [ country, courses, school ]);
 
   return price;
 };
