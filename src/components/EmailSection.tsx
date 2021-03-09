@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useReducer } from 'react';
 
 import { useSchool } from '../hooks/useSchool';
-import { Align } from '../styled/Align';
 
+import { Align } from '../styled/Align';
 import { Container } from '../styled/Container';
 import { FormGroup } from '../styled/FormGroup';
 import { Heading1 } from '../styled/Heading1';
