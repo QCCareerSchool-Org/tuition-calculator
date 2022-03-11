@@ -21,7 +21,7 @@ export const CoursesSection: React.FC<Props> = ({ price, coursesState, coursesDi
   <Section inverse={true}>
     <Container>
       <Heading1>Choose Your Courses</Heading1>
-      <BundleMessage />
+      {/* <BundleMessage /> */}
       {coursesState.available
         .filter(c => !coursesState.hidden.includes(c.code))
         .map(c => <ToggleButton
