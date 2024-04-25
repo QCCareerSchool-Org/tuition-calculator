@@ -11,16 +11,11 @@ export const useCourses = (): readonly [ CoursesState, React.Dispatch<CoursesAct
     if (school === 'makeup') {
       const courses: Course[] = [
         { code: 'MZ', name: 'Master Makeup Artistry' },
-        { code: 'MK', name: 'Makeup Artistry' },
         { code: 'SK', name: 'Skincare' },
         { code: 'AB', name: 'Airbrush Makeup Workshop' },
         { code: 'SF', name: 'Special FX Makeup' },
         { code: 'HS', name: 'Hair Styling Essentials' },
-        { code: 'PF', name: 'Fashion Styling' },
-        { code: 'VM', name: 'Virtual Makeup' },
         { code: 'MW', name: 'Pro Makeup Workshop' },
-        { code: 'GB', name: 'Global Beauty' },
-        { code: 'PW', name: 'Portfolio Development Workshop' },
       ];
       dispatch({ type: 'SET_AVAILABLE_COURSES', payload: courses });
     } else if (school === 'event') {
